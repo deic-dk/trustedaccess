@@ -3,7 +3,7 @@
 		xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
 	<id>trustedaccess</id>
 	<name>Trusted Access</name>
-	<summary>Extensions for data processing integrations.</summary>
+	<summary>Extensions for data processing integration.</summary>
 	<description><![CDATA[Webdav authorization by IP, by sharing, by x.509 certificate
 Brute force protection
 Hiding selected folders from webdav
@@ -27,10 +27,10 @@ File choosing utilities for remote clients.]]>
 		<addcert>appinfo/addcert.php</addcert>
 		<removecert>appinfo/removecert.php</removecert>
 	</remote>
-	<navigations>
-		<!--<navigation>
+	<!--<navigations>
+		<navigation>
 			<name>Trusted Access</name>
 			<route>trustedaccess.page.index</route>
-		</navigation>-->
-	</navigations>
+		</navigation>
+	</navigations>-->
 </info>

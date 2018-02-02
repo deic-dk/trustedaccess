@@ -10,22 +10,24 @@ $user_id = OCP\USER::getUser();
 
 \OCP\Util::writeLog('trustedaccess', "Setting DN: ".$user_id.":".$dn, \OCP\Util::WARN);
 
-$ret['msg'] = "";
+$ret['message'] = "";
 
-if($dn===""){
+if(empty($dn)){
 	if(OC_Chooser::removeCert($user_id, $dn)){
-		$ret['message'] .= "Cleared DN";
+		$ret['message'] .= "Cleared DN.";
 	}
 	else{
-		$ret['error'] = "Failed clearing DN ".$dn." for user ".$user_id;
+		$ret['error'] = "Failed clearing DN ".$dn." for user ".$user_id.". ";
 	}
 }
 
-if(OC_Chooser::addCert($user_id, $dn)){
-	$ret['message'] .= "Saved DN";
-}
-else{
-	$ret['error'] = "Failed setting DN ".$dn." for user ".$user_id;
+if(!empty($dn)){
+	if(OC_Chooser::addCert($user_id, $dn)){
+		$ret['message'] .= " Saved DN";
+	}
+	else{
+		$ret['error'] = "Failed setting DN ".$dn." for user ".$user_id;
+	}
 }
 
 OCP\JSON::encodedPrint($ret);
